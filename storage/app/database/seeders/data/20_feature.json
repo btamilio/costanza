@@ -1,0 +1,231 @@
+[
+  {
+    "id": 4,
+    "feature_type_id": 1,
+    "name": "monometer",
+    "label": "Monometer (1)",
+    "sort_order": 1
+  },
+  {
+    "id": 5,
+    "feature_type_id": 1,
+    "name": "dimeter",
+    "label": "Dimeter (2)",
+    "sort_order": 2
+  },
+  {
+    "id": 6,
+    "feature_type_id": 1,
+    "name": "trimeter",
+    "label": "Trimeter (3)",
+    "sort_order": 3
+  },
+  {
+    "id": 7,
+    "feature_type_id": 1,
+    "name": "tetrameter",
+    "label": "Tetrameter (4)",
+    "sort_order": 4
+  },
+  {
+    "id": 8,
+    "feature_type_id": 1,
+    "name": "pentameter",
+    "label": "Pentameter (5)",
+    "sort_order": 5
+  },
+  {
+    "id": 9,
+    "feature_type_id": 1,
+    "name": "hexameter",
+    "label": "Hexameter (6)",
+    "sort_order": 6
+  },
+  {
+    "id": 10,
+    "feature_type_id": 1,
+    "name": "heptameter",
+    "label": "Heptameter (7)",
+    "sort_order": 7
+  },
+  {
+    "id": 11,
+    "feature_type_id": 1,
+    "name": "octameter",
+    "label": "Octameter (8)",
+    "sort_order": 8
+  },
+  {
+    "id": 46,
+    "feature_type_id": 1,
+    "name": "anisometric",
+    "label": "Anisometric (heterometric)",
+    "sort_order": 99
+  },
+  {
+    "id": 47,
+    "feature_type_id": 1,
+    "name": "nonometer",
+    "label": "Nonometer (9)",
+    "sort_order": 9
+  },
+  {
+    "id": 12,
+    "feature_type_id": 2,
+    "name": "iambic"
+  },
+  {
+    "id": 13,
+    "feature_type_id": 2,
+    "name": "trochaic"
+  },
+  {
+    "id": 14,
+    "feature_type_id": 2,
+    "name": "spondaic"
+  },
+  {
+    "id": 15,
+    "feature_type_id": 2,
+    "name": "dactylic"
+  },
+  {
+    "id": 16,
+    "feature_type_id": 2,
+    "name": "anapestic"
+  },
+  {
+    "id": 17,
+    "feature_type_id": 2,
+    "name": "pyrrhic"
+  },
+  {
+    "id": 18,
+    "feature_type_id": 2,
+    "name": "choriambic"
+  },
+  {
+    "id": 51,
+    "feature_type_id": 3,
+    "name": "4",
+    "label": "Quatrains (4)",
+    "sort_order": 4
+  },
+  {
+    "id": 50,
+    "feature_type_id": 3,
+    "name": "3",
+    "label": "Tercets (3)",
+    "sort_order": 3
+  },
+  {
+    "id": 49,
+    "feature_type_id": 3,
+    "name": "2",
+    "label": "Couplets (2)",
+    "sort_order": 2
+  },
+  {
+    "id": 52,
+    "feature_type_id": 3,
+    "name": "5",
+    "label": "Cinquains (5)",
+    "sort_order": 5
+  },
+  {
+    "id": 53,
+    "feature_type_id": 3,
+    "name": "6",
+    "label": "Sixains (6)",
+    "sort_order": 6
+  },
+  {
+    "id": 54,
+    "feature_type_id": 3,
+    "name": "7",
+    "label": "Heptameters (7)",
+    "sort_order": 7
+  },
+  {
+    "id": 55,
+    "feature_type_id": 3,
+    "name": "8",
+    "label": "Octaves (8)",
+    "sort_order": 8
+  },
+  {
+    "id": 59,
+    "feature_type_id": 4,
+    "name": "Satire"
+  },
+  {
+    "id": 68,
+    "feature_type_id": 4,
+    "name": "romantic"
+  },
+  {
+    "id": 69,
+    "feature_type_id": 4,
+    "name": "dark"
+  },
+  {
+    "id": 70,
+    "feature_type_id": 4,
+    "name": "humorous"
+  },
+  {
+    "id": 71,
+    "feature_type_id": 4,
+    "name": "ironic"
+  },
+  {
+    "id": 72,
+    "feature_type_id": 4,
+    "name": "melancholic"
+  },
+  {
+    "id": 73,
+    "feature_type_id": 4,
+    "name": "nostalgic"
+  },
+  {
+    "id": 74,
+    "feature_type_id": 4,
+    "name": "reflective"
+  },
+  {
+    "id": 75,
+    "feature_type_id": 4,
+    "name": "whimsical"
+  },
+  {
+    "id": 76,
+    "feature_type_id": 4,
+    "name": "didactic"
+  },
+  {
+    "id": 77,
+    "feature_type_id": 5,
+    "name": "1"
+  },
+  {
+    "id": 78,
+    "feature_type_id": 5,
+    "name": "2"
+  },
+  {
+    "id": 79,
+    "feature_type_id": 5,
+    "name": "3"
+  },
+  {
+    "id": 80,
+    "feature_type_id": 5,
+    "name": "4"
+  },
+  {
+    "id": 81,
+    "feature_type_id": 5,
+    "name": "5"
+  }
+]
