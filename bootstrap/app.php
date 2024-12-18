@@ -21,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
 
+        // simple middleware to force HTTP headers
         $middleware->append([
             ForcedResponseHeaders::class
         ]);
@@ -29,12 +30,12 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
 
-
         $exceptions->render(function (FatalError $e, Request $request) {
             if ($request->is('api/*')) {
+                // TODO: implement ChatOps (slack, etc) for fatal errors
                 return response()->json([
                     "success" => FALSE,
-                    "errors" => ["Something has gone wrong! We've got our team on it..."]
+                    "errors" => ["Something has gone wrong! We've notified our team..."]
                 ], 500);
             }
         });

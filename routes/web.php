@@ -8,8 +8,6 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-
-//use App\Http\Controllers\PoemController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\PoetryController;
 use App\Http\Controllers\Web\APIController;
@@ -22,8 +20,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/poetry', [PoetryController::class, 'index'])->name('poetry');
 Route::get('/api', [APIController::class, 'index'])->name('api');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+// for now, allow anyone to view any poem.
 Route::get('/poem/{id}', [PoetryController::class, 'show'])->name('poem.show');
 Route::post('/poem/make', [PoetryController::class, 'create'])->name('poem.make');
+
+// clicky from verification email
 Route::get('/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
 
 

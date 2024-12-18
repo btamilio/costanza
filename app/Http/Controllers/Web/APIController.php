@@ -13,6 +13,7 @@ class APIController extends Controller
 
     public function index(Request $request)
     {
-        return view('api');
+          //TODO: about this application's API
+          return view('api');
     }
 }

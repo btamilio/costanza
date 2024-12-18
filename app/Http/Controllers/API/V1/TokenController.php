@@ -17,9 +17,9 @@ use App\Jobs\Email\SendVerification;
 class TokenController extends Controller
 {
 
+    // not currently used
     public function index(Request $request)
     {
-
          return response()->json([
             'success' => TRUE,
             'data'   => ["tokens" => $request()->user->tokens() ]
@@ -52,7 +52,7 @@ class TokenController extends Controller
     //TODO: public function update(Request $request){};
 
 
-
+    // not currently used
     public function destroy(Request $request)
     {
          return response()->json([

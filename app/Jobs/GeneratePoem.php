@@ -22,7 +22,6 @@ class GeneratePoem implements ShouldQueue //, ShouldBeUnique
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-
     public function __construct(protected Poem $poem) {
  
     }
@@ -32,22 +31,15 @@ class GeneratePoem implements ShouldQueue //, ShouldBeUnique
         $this->poem->prompt = $this->poem->prompt ?? (new GeneratePrompt())->execute($this->poem);
         $this->poem->save();
 
-        $response = json_decode((new OpenAI())->getChatCompletion([
-            // [
-            //     "role" => "system",
-            //     "content" => Str::squish(config("services.openai.prompt_instructions")),
-            // ],
-            [
+        $response = json_decode((new OpenAI())->getChatCompletion([[
                 "role"    => "user",
                 "content" => $this->poem->prompt,
                 "temperature" => 0.7  
-        ]
-            ]), true) ?? NULL;
+            ]]), true) ?? NULL;
 
  
-
         if (empty($response)) {
-            $this->poem->flag_response = TRUE;
+            $this->poem->flag_response = TRUE; 
         
         } else {
 
@@ -56,7 +48,7 @@ class GeneratePoem implements ShouldQueue //, ShouldBeUnique
 
             $this->poem->title        = $poem->title ?? NULL;
             $this->poem->response     = json_encode($response) ?? NULL;
-            $this->poem->lineation    = $poem->lineation ?? NULL;
+            $this->poem->lineation    = $poem->lineation ?? NULL;   
             $this->poem->authors_note = $poem->{'authors-note'} ?? NULL;
 
             // run the output through moderation just in case.

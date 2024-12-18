@@ -18,7 +18,6 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        
 
         return view('home', [
             "feature_types"         =>  FeatureType::whereNot("hidden", 1)->orderBy("sort_order")->orderBy("label")->with("features")->get()->toArray(),

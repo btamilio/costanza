@@ -42,8 +42,9 @@ class Poem extends Model
         $by_type = [];
  
         // get all features with their types, and group them by type.
-        foreach ($this->features()->with('featureType')->get() ?? [] as $feature) {
-
+        foreach ($this->features()->with('featureType')->get() ?? [] as $feature) 
+        {
+                
                 $label = ($use_prompt_label)
                     ? ($feature->featureType->prompt_label ?? $feature->featureType->label ?? $feature->featureType->name)
                     : ($feature->featureType->label ?? $feature->featureType->name);

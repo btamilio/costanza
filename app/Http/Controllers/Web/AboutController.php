@@ -13,6 +13,7 @@ class AboutController extends Controller
 
     public function index(Request $request)
     {
+        //TODO: about this application
         return view('about');
     }
 }

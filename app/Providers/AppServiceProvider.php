@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-            // it looks nice? :) 
+            // a macro to return a JSON response with pretty formatting
             Response::macro('jsonPretty', function ($data = [], $status = 200, array $headers = [], $options = 0) {
                 return Response::json($data, $status, $headers, JSON_PRETTY_PRINT | $options);
             });

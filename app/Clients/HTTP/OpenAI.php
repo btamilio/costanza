@@ -15,14 +15,18 @@ use Exception;
 class OpenAI extends HTTPClient
 {
 
-    protected string $log_prefix = "GPT: ";
-    protected string $base_url   = "https://api.openai.com";
+    protected string $base_url;
 
 
 
+    public function __construct(protected array $options = []) {
+        $this->base_url = config("services.openai.base_url");
+    }
+
+
+    // "moderation" checks whether a given input text is likely to be offensive, hateful, or inappropriate.
     public function getModerationStatus(string $input, string $model = "omni-moderation-latest")
     {
-
         try {
             $response = $this->client("api")->post($this->base_url . "/v1/moderations", [
                 "input" => $input
@@ -41,7 +45,6 @@ class OpenAI extends HTTPClient
 
     public function getChatCompletion(array $messages, string $model = "gpt-4")
     {
-
 
         try {
             $response = $this->client("api")->post($this->base_url . "/v1/chat/completions", [

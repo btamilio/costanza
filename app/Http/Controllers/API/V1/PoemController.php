@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 use App\Models\Poem;
 use App\Jobs\GeneratePoem;
-
+use App\Actions\Poem\GeneratePrompt;
 use App\Clients\HTTP\OpenAI;
-
+use App\Models\FeatureType;
+use App\Models\PoemFeature;
 use App\Http\Requests\API\V1\Poem\CreateRequest;
 use App\Http\Resources\API\V1\PoemResource;
 
+use Illuminate\Support\Facades\DB;
 use Generator;
 
 
@@ -31,7 +33,7 @@ class PoemController extends Controller
     public function show(Request $request) {
 
           $poem = Poem::where([
-          //     "user_id" => request()->user()->id,
+          //     "user_id" => request()->user()->id, // TODO: eventually we could make poems private and only accessible to their owners
                "id"      => $request->id,
           ])->first();
 
@@ -41,20 +43,28 @@ class PoemController extends Controller
  
     }
 
-    public function create(CreateRequest $request) {
- 
-          $prompt = "POEM PROMPT: the pen is mightier. STANZAS: 2 FOOT: Iambic METER: pentameter";
-
-          // moderation check...
-          if ((new OpenAI())->getModerationStatus($prompt))  
-               return $this->failure("Your prompt was flagged for content moderation. Please try again.", status: 451);
-
+    public function create(CreateRequest $request) 
+    {
           $poem = Poem::create([
                "user_id" => request()->user()->id,
-               "topic"  => $prompt,
+               "topic"  => $request->topic ?? NULL
           ]);
+          $poem->save();
 
-          GeneratePoem::dispatch($poem);
+
+          // Create poem features from request data
+          $types = FeatureType::all()->pluck("name")->toArray();
+
+          foreach ($types as $type) {
+               if ($request->input($type))
+                    DB::table((new PoemFeature())->table)->insert(["poem_id" => $poem->id, "feature_id" => intval($request->input($type))]);
+          }
+
+          // OpenAI's API can be 2-20+ seconds of processing and round-trip, so to avoid blocking
+          // and timing out, queue the job to be processed asynchronously and give back only the ID.
+          dispatch(new GeneratePoem($poem));
+
+ 
 
           return $this->success([ "id" => $poem->id ] );          
  

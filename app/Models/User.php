@@ -18,7 +18,6 @@ use Laravel\Sanctum\Sanctum;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Poem;
 
-
 class User extends Authenticatable 
 {
     use Notifiable, HasApiTokens, HasFactory, SoftDeletes;

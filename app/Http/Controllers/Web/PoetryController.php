@@ -16,7 +16,7 @@ use App\Models\Feature;
 use App\Models\FeatureType;
 use App\Models\PoemFeature;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class PoetryController extends Controller
 {
@@ -27,7 +27,7 @@ class PoetryController extends Controller
         return view('poetry');
     }
 
-    public function show (Request $request, $id)
+    public function show (ShowRequest $request, $id)
     {
  
         $poem = Poem::find($id) ?? []; 
@@ -43,7 +43,7 @@ class PoetryController extends Controller
     public function create(CreateRequest $request)
     {
         $types = FeatureType::all()->pluck("name")->toArray();
-        $user_id = 1; // dedicated "anonymous" user
+        $user_id = 1; // a dedicated "anonymous" user
 
         $poem = Poem::create([
             "user_id"    =>  $user_id, 

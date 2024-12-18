@@ -20,8 +20,6 @@ class FeatureType extends Model
     public $timestamps = false;
     public $table   = 'features_types';
 
- 
-
 
     public function features()
     {

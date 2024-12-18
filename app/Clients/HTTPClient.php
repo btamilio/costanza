@@ -12,18 +12,20 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Exception;
 
-class HTTPClient
+
+
+
+
+abstract class HTTPClient
 {
 
     protected mixed  $client = NULL;
-    protected string $log_prefix = "HTTP: ";
     protected int    $cache_ttl = 300;
 
 
 
-    public function __construct(protected array $options = []){
-        
-    }
+    public function __construct(protected array $options = []) {}
+
 
 
     public function client(string $resource)
@@ -39,9 +41,9 @@ class HTTPClient
                     ->withOptions([
                         'connect_timeout' => $this->options["connect_timeout"] ?? 10,
                     ])
-                    ->withUserAgent('BREN-WAS-HERE/1.0');
+                    ->withUserAgent('BREN-WAS-HERE/1.0'); // &shrug; 
         } catch (Exception $e) {
-            return Log::critical($this->log_prefix . __FUNCTION__ . " could not instantiate HTTP Client (MSG: " . ($e->getMessage() ?? "N/A") . ")");
+            return Log::critical(__FUNCTION__ . " could not instantiate HTTP Client (MSG: " . ($e->getMessage() ?? "N/A") . ")");
         }
     }
 
@@ -49,13 +51,10 @@ class HTTPClient
 
     protected function onHttpError(string $caller, string $status, string $msg = NULL)
     {
-        return Log::error($this->log_prefix . $caller . " HTTP request error (HTTP {$status} | MSG: " . ($msg ?? "N/A") . ")");
+        return Log::error($caller . " HTTP request error (HTTP {$status} | MSG: " . ($msg ?? "N/A") . ")");
     }
 
-    public function getAuthToken($resource = NULL)
-    {
-        
-    }
+    public function getAuthToken($resource = NULL){}
 
 
 
