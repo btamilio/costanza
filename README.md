@@ -18,5 +18,6 @@ After all that is in place, run the new-standards of:
 2. composer install
 3. php artisan migrate
 4. php artisan db:seed
+5. npm run dev
 
 _more to come..._
