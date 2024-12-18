@@ -15,6 +15,7 @@ Route::prefix('v1')->group(function ()  {
 
         Route::middleware(['auth:sanctum'])->group(function () 
         {
+                // TODO
                 // Route::get('poems', [PoemController::class, 'index'])->name('poems.index');
                 // Route::get('poem/{id}/delete', [PoemController::class, 'destroy'])->name('poem.delete');
                 
