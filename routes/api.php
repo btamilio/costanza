@@ -11,6 +11,7 @@ use App\Http\Controllers\API\V1\PoemController;
 
 Route::prefix('v1')->group(function ()  {
 
+        // this route has two modes: 1. email verification 2. token creation
         Route::post('token/create',   [TokenController::class, 'create'])->name('token.create');
 
         Route::middleware(['auth:sanctum'])->group(function () 
