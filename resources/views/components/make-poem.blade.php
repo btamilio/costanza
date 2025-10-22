@@ -24,7 +24,7 @@
                 <div class="col-9 text-start">
                     <textarea class="form-control mb-3 text-start rounded" name="topic" rows="3" maxlength="300"
                         placeholder="¯\_(ツ)_/¯"></textarea>
-                    </select>
+        
                 </div>
             </div>
 

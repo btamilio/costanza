@@ -25,6 +25,7 @@ class PoemController extends Controller
 
     public function index(Request $request) {
 
+     dd($request);
      $this->success(Poem::where([
                   "user_id" => request()->user()->id,
           ])->get());
@@ -32,6 +33,8 @@ class PoemController extends Controller
 
     public function show(Request $request) {
 
+
+     dd($request);
           $poem = Poem::where([
           //     "user_id" => request()->user()->id, // TODO: eventually we could make poems private and only accessible to their owners
                "id"      => $request->id,
@@ -45,13 +48,15 @@ class PoemController extends Controller
 
     public function create(CreateRequest $request) 
     {
+
+          dd($request);
           $poem = Poem::create([
                "user_id" => request()->user()->id,
                "topic"  => $request->topic ?? NULL
           ]);
           $poem->save();
 
-
+ 
           // Create poem features from request data
           $types = FeatureType::all()->pluck("name")->toArray();
 

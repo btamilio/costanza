@@ -24,12 +24,13 @@ class PoetryController extends Controller
 
     public function index(Request $request)
     {
+
         return view('poetry');
     }
 
-    public function show (ShowRequest $request, $id)
+    public function show (ShowRequest $request)
     {
- 
+        dd($request);
         $poem = Poem::find($id) ?? []; 
 
         if (empty($poem))
@@ -42,6 +43,8 @@ class PoetryController extends Controller
 
     public function create(CreateRequest $request)
     {
+ 
+
         $types = FeatureType::all()->pluck("name")->toArray();
         $user_id = 1; // a dedicated "anonymous" user
 
@@ -58,6 +61,8 @@ class PoetryController extends Controller
 
         // Generate poem in the background using Laravel's queue system.
         GeneratePoem::dispatch($poem);
+        $poem->refresh();
+ 
 
         return redirect()->route('poem.show', ['id' => $poem->id ]);
     }
