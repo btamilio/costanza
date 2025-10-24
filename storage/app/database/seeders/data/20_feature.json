@@ -227,5 +227,23 @@
     "id": 81,
     "feature_type_id": 5,
     "name": "5"
+  },
+  {
+    "id": 82,
+    "feature_type_id": 6,
+    "label": "Haiku",
+    "name": "haiku"
+  },
+  {
+    "id": 83,
+    "feature_type_id": 6,
+    "label": "Limerick",
+    "name": "limerick"
+  },
+  {
+    "id": 84,
+    "feature_type_id": 6,
+    "label": "Sonnet",
+    "name": "sonnet"
   }
 ]

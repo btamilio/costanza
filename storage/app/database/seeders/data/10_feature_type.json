@@ -33,5 +33,11 @@
     "label": "Stanzas",
     "prompt_label": "number of stanzas",
     "sort_order": 40
+  },
+  {
+    "id": 6,
+    "name": "format",
+    "label": "Format",
+    "sort_order": 1
   }
 ]

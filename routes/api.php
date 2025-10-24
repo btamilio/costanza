@@ -20,10 +20,7 @@ Route::prefix('v1')->group(function ()  {
                 // Route::get('poems', [PoemController::class, 'index'])->name('poems.index');
                 // Route::get('poem/{id}/delete', [PoemController::class, 'destroy'])->name('poem.delete');
                 
- 
                 Route::get('poem/{id}', [PoemController::class, 'show'])->name('api.poem.show');
- 
- 
                 Route::post('poem/create', [PoemController::class, 'create'])->name('api.poem.create');
 
                 // TODO: show user tokens / delete a user tokens
