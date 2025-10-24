@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-
         // populate tables from .json files
         foreach (Storage::disk('seeder_data')->files() ?? [] as $file)
         {
