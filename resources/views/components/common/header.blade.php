@@ -8,28 +8,20 @@
     <title>{{ $title ?? "Costanza" }}</title>
 
 
-
-
     @php
-    $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), TRUE);
-    rsort($manifest);
+        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+        rsort($manifest);
     @endphp
 
-    @production
     @foreach ($manifest as $item)
-    @if (str($item["file"])->endsWith("css"))
-    <link rel="stylesheet" href="/build/{{ $item["file"]  }}" />
-    @elseif (str($item["file"])->endsWith("js"))
-    <script type="module" src="/build/{{ $item["file"] }}"></script>
-    @endif
+        @if (str($item['file'])->endsWith('css'))
+            <link rel="stylesheet" href="/build/{{ $item['file'] }}" />
+        @elseif (str($item['file'])->endsWith('js'))
+            <script type="module" src="/build/{{ $item['file'] }}"></script>
+        @endif
     @endforeach
-    @else
-    @vite([
-    'resources/sass/app.scss',
-    'resources/css/app.css',
-    'resources/js/app.js'
-    ])
-    @endproduction
+
+ 
 
 
 
