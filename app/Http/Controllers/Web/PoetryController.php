@@ -46,7 +46,7 @@ class PoetryController extends Controller
 
         $poem = new Poem([
             "user_id"    =>  $user_id, 
-            "topic"      =>  $request->topic ?? "FRED" 
+            "topic"      =>  $request->topic ?? NULL
         ]);
          $poem->save();
  
