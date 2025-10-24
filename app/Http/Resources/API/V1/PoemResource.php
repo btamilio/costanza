@@ -24,10 +24,11 @@ class PoemResource extends JsonResource
             'data' => [
                 'poem' =>  [ 
                       "title"        => $this->resource->title,
+                      "topic"        => $this->resource->topic,
                       "lineation"    => $this->resource->lineation,
                       "date"         => $this->resource->generated_at ?? $this->resource->updated_at,
-                      "author"       => $this->resource->user->display_name,
-                      "authors_note" => $this->resource->authors_note,
+                      "author"       => $this->resource->user->display_name ?? "Anonymous",
+                      "authors_note" => $this->resource->authors_note ?? "",
 
                        $this->mergeWhen(!empty($features), $features),
 

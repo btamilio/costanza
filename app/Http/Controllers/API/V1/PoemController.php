@@ -25,6 +25,7 @@ class PoemController extends Controller
 
     public function index(Request $request) {
 
+ 
      $this->success(Poem::where([
                   "user_id" => request()->user()->id,
           ])->get());
@@ -45,13 +46,14 @@ class PoemController extends Controller
 
     public function create(CreateRequest $request) 
     {
+ 
           $poem = Poem::create([
                "user_id" => request()->user()->id,
                "topic"  => $request->topic ?? NULL
           ]);
           $poem->save();
 
-
+ 
           // Create poem features from request data
           $types = FeatureType::all()->pluck("name")->toArray();
 
