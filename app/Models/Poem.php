@@ -24,6 +24,7 @@ class Poem extends Model
         'user_id',
         'lineation',
         'prompt',
+        'topic'
     ];
  
 

@@ -23,10 +23,13 @@ class GeneratePoem implements ShouldQueue //, ShouldBeUnique
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public function __construct(protected Poem $poem) {
- 
+
     }
 
     public function handle() {
+
+
+        $this->poem->refresh();
 
         $this->poem->prompt = $this->poem->prompt ?? (new GeneratePrompt())->execute($this->poem);
         $this->poem->save();
