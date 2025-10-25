@@ -43,11 +43,11 @@
 </head>
 
 <body>
-
+ 
     <header>
-     
-            <nav class="navbar  sticky-top navbar-expand  navbar-light bg-light " role="navigation">
-                <div class=" container-fluid">
+ 
+            <nav class="navbar navbar-expand bg-body-tertiary">
+                <div class="container-fluid">
                     <a class="navbar-brand" href="/">
                         <img src="/svg/masthead.svg" alt="COSTANZA: Uncanny AI Poetry" id="masthead" />
                     </a>
@@ -55,9 +55,9 @@
                         <li class="nav-item">
                             <a class=" nav-link text-reset" href="/poetry">Poetry</a>
                         </li>
-                        <li class="nav-item">
+                     <!--   <li class="nav-item">
                             <a class="  nav-link" href="/api">API</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class=" nav-link" href="/about">About</a>
                         </li>
