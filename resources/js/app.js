@@ -1,18 +1,18 @@
- // Default Laravel bootstrapper, installs axios
-import './bootstrap';
+ 
+require("bootstrap");
+
 
  // Added: Actual Bootstrap JavaScript dependency
 import 'bootstrap';
 
+import jQuery from "jquery";
+window.$ = jQuery;
+
  // Added: Popper.js dependency for popover support in Bootstrap
 import '@popperjs/core';
 
-// import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
-// // import Clipboard from '@ryangjchandler/alpine-clipboard'
- 
-// // Alpine.plugin(Clipboard)
- 
-// Livewire.start()
-
+$(function () {
+  console.log("HOW ARE YOU GENTLEMEN?");
+});    
 
 
